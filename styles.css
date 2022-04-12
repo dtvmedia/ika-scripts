@@ -1,0 +1,225 @@
+/** Remove Premium & Useless Stuff **/
+#footer,
+#premium_btn,
+#premium_btn2,
+.premiumOfferBox,
+.premiumOffer,
+#moveCity,
+#ambrosiaDonateForm,
+#researchAdvisor .contentBox01h:not(#tab_researchAdvisor),
+#diplomacyAdvisorArchiveOutBox .contentBox01h:nth-of-type(3),
+#diplomacyAdvisorArchive .contentBox01h:nth-of-type(3),
+#diplomacyAdvisorOutBox .contentBox01h:nth-of-type(3),
+#diplomacyAdvisor .contentBox01h:nth-of-type(3),
+#militaryMovements + .contentBox01h,
+#leftMenu .expandable.resourceShop,
+#leftMenu .expandable.slot1,
+#leftMenu .expandable.slot2,
+#leftMenu .expandable.slot5 {
+    display: none !important;
+}
+
+/** Town Hall **/
+#townHall .stats li {
+    background-size: 24px;
+    padding-bottom: 8px;
+    font-weight: bold;
+}
+
+#js_TownHallOccupiedSpace::before,
+#js_TownHallActionPointsAvailable::before,
+#js_TownHallPopulationGrowthValue::before {
+    content: "\A";
+    white-space: pre;
+}
+
+#townHall #js_TownHallGarrisonLimitLand,
+#townHall #js_TownHallGarrisonLimitSea,
+#townHall #js_TownHallIncomeGoldValue,
+#townHall #js_TownHallCorruption {
+    display: block;
+}
+
+#townHall #js_TownHallHappinessLargeValue {
+    font-size: 24px;
+}
+
+#townHall #js_TownHallOccupiedSpace,
+#townHall #js_TownHallMaxInhabitants,
+#townHall #js_TownHallGarrisonLimitLand,
+#townHall #js_TownHallGarrisonLimitSea,
+#townHall #js_TownHallActionPointsAvailable,
+#townHall #js_TownHallMaxActionPointsAvailable,
+#townHall #js_TownHallPopulationGrowthValue,
+#townHall #js_TownHallIncomeGoldValue,
+#townHall #js_TownHallCorruption {
+    font-weight: normal;
+}
+
+/** Building Overview **/
+#buildingsOverview .table01 {
+    table-layout: fixed;
+}
+#buildingsOverview .building {
+    text-align: center !important;
+}
+
+/** Research **/
+.current_research .curr_research_wrapper {
+    border: none;
+    padding: 10px 15px 5px;
+}
+
+.curr_research_wrapper span.desc,
+#js_researchAdvisorCurrResearchDesc b {
+    display: block;
+    float: none !important;
+    font-size: 14px;
+}
+
+#js_researchAdvisorCurrResearchDesc {
+    margin-bottom: 14px;
+    text-align: justify;
+    line-height: 18px;
+}
+
+#container .contentBox01h .current_research p.txt,
+#container .current_research ul {
+    margin-left: 0;
+}
+
+.premium_research_link {
+    background: none !important;
+    border: none !important;
+}
+
+.premium_research_link h3,
+.premium_research_link img,
+.premium_research_link p {
+    display: none;
+}
+
+.research_overview_list {
+    height: 40px !important;
+    margin-top: 0 !important;
+    font-weight: bold;
+    border-bottom: 1px solid gainsboro;
+}
+
+.research_overview_list li {
+    margin-top: 9px;
+    padding-left: 30px !important;
+}
+
+.research_type .explored {
+    background: none !important;
+}
+
+.research_type .explored::after {
+    content: "✓";
+    color: green;
+    font-size: 16px;
+    float: right;
+    margin-right: 5px;
+}
+
+/** Archievements **/
+.bar_cell .green {
+    background: green;
+}
+
+.achievementRequirenmentList {
+    min-height: auto;
+    margin-bottom: 0;
+}
+
+.achievementRequirenmentList + div {
+    margin-top: 0 !important;
+}
+
+#avatarDetails .barBorder2 > div:first-of-type {
+    height: 12px !important;
+}
+
+#avatarDetails .barBorder2 .progressText {
+    color: #9badb0;
+    mix-blend-mode: luminosity;
+}
+
+#achievementsTable .alt td {
+    border-top: 1px solid #FCDBAA;
+    border-bottom: 1px solid #FCDBAA;
+}
+
+#achievementsTable .achievementName,
+#achievementsTable .magnify_icon {
+    padding-top: 10px;
+    background-size: 16px;
+}
+
+#achievementsTable ul li {
+    list-style: none !important;
+}
+
+/** Misc **/
+.page_link {
+    padding: 3px 7px;
+}
+
+#container .warning {
+    padding: 20px !important;
+    margin: 0 3px;
+    background: #ffe8ca;
+    font-size: 12px;
+    font-weight: bold;
+    color: #b30000;
+    line-height: 20px;
+}
+
+#container .warning p {
+    padding: 0;
+    line-height: 20px;
+}
+
+#container #loadingPreview {
+    filter: drop-shadow(rgb(0, 0, 0) 0px 3px 3px);
+}
+
+.arrow_ok {
+    background: none;
+    margin-top: 0;
+}
+
+.arrow_ok::before {
+    content: "✓";
+    color: green;
+    font-size: 16px;
+    margin: 0 7px;
+}
+
+.contentBox01h .header {
+    margin: 0;
+    padding: 6px 6px;
+    background: rgb(210, 143, 72);
+    background: linear-gradient(180deg, rgb(210, 143, 72) 0%, rgb(190, 133, 72) 33%, rgb(150, 91, 28) 100%);
+    color: whitesmoke;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 3px double #eab07c;
+    border-bottom: none;
+}
+
+input.textfield,
+textarea,
+textarea.textfield,
+select,
+select.textfield,
+html .message_chat {
+    border: 1px solid #c9a584 !important;
+}
+
+input.textfield,
+textarea,
+textarea.textfield {
+    padding: 3px 5px;
+}
