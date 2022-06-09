@@ -20,6 +20,26 @@
         return tmp(data);
     }
 
+    function fixCityFlags(id, level) {
+        const Flag = $('#js_cityLocation' + id + 'Link').find('.flag');
+
+        if (level <= 2) {
+            Flag.css('left', '22px').css('top', '16px');
+        } else if (level <= 5) {
+            Flag.css('left', '32px').css('top', '-11px');
+        } else if (level <= 8) {
+            Flag.css('left', '27px').css('top', '7px');
+        } else if (level <= 12) {
+            Flag.css('left', '42px').css('top', '-1px');
+        } else if (level <= 15) {
+            Flag.css('left', '32px').css('top', '-5px');
+        } else if (level <= 17) {
+            Flag.css('left', '32px').css('top', '0px');
+        } else if (level >= 18) {
+            Flag.css('left', '32px').css('top', '-11px');
+        }
+    }
+
     $('.cityLocation:not(.cityLocationScroll)').each(function() {
         const cityWrapper = $(this);
         const id = cityWrapper.attr('id').replace('cityLocation', '');
@@ -34,6 +54,20 @@
             let ally = '';
             if (cityData.hasOwnProperty('ownerAllyTag')) {
                 ally = cityData.ownerAllyTag + ' | ';
+            }
+
+            if (cityData.hasOwnProperty('ownerAllyId')) {
+                // BND (pink)
+                if (["5"].includes(cityData.ownerAllyId)) {
+                    $('#js_cityLocation' + id + 'Link').css('filter', 'hue-rotate(290deg)');
+                    fixCityFlags(id, cityData.level);
+                }
+
+                // Enemy (brown)
+                if (["3"].includes(cityData.ownerAllyId)) {
+                    $('#js_cityLocation' + id + 'Link').css('filter', 'hue-rotate(50deg)');
+                    fixCityFlags(id, cityData.level);
+                }
             }
 
             $('#js_cityLocation' + id + 'TitleText').text(cityData.name + ' (' + ally + cityData.ownerName + ')')
