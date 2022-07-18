@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         Ikariam Report Enhancer
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.2
 // @description  try to take over the world!
 // @author       Domi95
-// @match        https://s51-de.ikariam.gameforge.com/*
+// @match        https://*.ikariam.gameforge.com/*
 // @icon         https://www.google.com/s2/favicons?domain=ikariam.com
 // @grant        none
 // ==/UserScript==
@@ -133,7 +133,7 @@
             const now = new Date();
 
             for (let key in this.data) {
-                if (Helper.diffInDays(now, this.data[key].time) > 6) {
+                if (Helper.diffInDays(now, this.data[key].time) > 5) {
                     delete this.data[key];
                 }
             }

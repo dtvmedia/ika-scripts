@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         Ikariam Navigation Enhancer
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.2
 // @description  try to take over the world!
 // @author       Domi95
-// @match        https://s51-de.ikariam.gameforge.com/*
+// @match        https://*.ikariam.gameforge.com/*
 // @icon         https://www.google.com/s2/favicons?domain=ikariam.com
 // @grant        none
 // ==/UserScript==
@@ -18,19 +18,6 @@
             this.name = name;
             this.coords = coords;
             this.good = good;
-            this.wood = null;
-            this.wine = null;
-            this.marble = null;
-            this.glass = null;
-            this.sulfur = null;
-        }
-
-        setGoods(wood, wine, marble, glass, sulfur) {
-            this.wood = wood;
-            this.wine = wine;
-            this.marble = marble;
-            this.glass = glass;
-            this.sulfur = sulfur;
         }
 
         getGoodName() {
@@ -40,11 +27,11 @@
                 case 2:
                     return 'marble';
                 case 3:
-                    return 'glass';
+                    return 'crystal';
                 case 4:
                     return 'sulfur';
                 default:
-                    throw new Error('Invalid good id ' + this.good);
+                    return '';
             }
         }
     }

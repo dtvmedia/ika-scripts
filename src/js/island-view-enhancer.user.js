@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         Ikariam Island View Enhancer
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.2
 // @description  try to take over the world!
 // @author       Domi95
-// @match        https://s51-de.ikariam.gameforge.com/?view=island*
+// @match        https://*.ikariam.gameforge.com/?view=island*
 // @icon         https://www.google.com/s2/favicons?domain=ikariam.com
 // @grant        none
 // ==/UserScript==
@@ -25,17 +25,17 @@
 
         if (level <= 2) {
             Flag.css('left', '22px').css('top', '16px');
-        } else if (level <= 5) {
+        } else if(level <= 5) {
             Flag.css('left', '32px').css('top', '-11px');
-        } else if (level <= 8) {
+        } else if(level <= 8) {
             Flag.css('left', '27px').css('top', '7px');
-        } else if (level <= 12) {
+        } else if(level <= 12) {
             Flag.css('left', '42px').css('top', '-1px');
-        } else if (level <= 15) {
+        } else if(level <= 15) {
             Flag.css('left', '32px').css('top', '-5px');
-        } else if (level <= 17) {
+        } else if(level <= 17) {
             Flag.css('left', '32px').css('top', '0px');
-        } else if (level >= 18) {
+        } else if(level >= 18) {
             Flag.css('left', '32px').css('top', '-11px');
         }
     }
@@ -56,15 +56,16 @@
                 ally = cityData.ownerAllyTag + ' | ';
             }
 
+            // todo hardcoded ally ids
             if (cityData.hasOwnProperty('ownerAllyId')) {
                 // BND (pink)
-                if (["5"].includes(cityData.ownerAllyId)) {
+                if(["5"].includes(cityData.ownerAllyId)) {
                     $('#js_cityLocation' + id + 'Link').css('filter', 'hue-rotate(290deg)');
                     fixCityFlags(id, cityData.level);
                 }
 
                 // Enemy (brown)
-                if (["3"].includes(cityData.ownerAllyId)) {
+                if(["3"].includes(cityData.ownerAllyId)) {
                     $('#js_cityLocation' + id + 'Link').css('filter', 'hue-rotate(50deg)');
                     fixCityFlags(id, cityData.level);
                 }
