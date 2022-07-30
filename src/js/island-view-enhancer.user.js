@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Ikariam Island View Enhancer
 // @namespace    http://tampermonkey.net/
-// @version      0.2
+// @version      0.3
 // @description  try to take over the world!
 // @author       Domi95
 // @match        https://*.ikariam.gameforge.com/?view=island*
@@ -25,17 +25,17 @@
 
         if (level <= 2) {
             Flag.css('left', '22px').css('top', '16px');
-        } else if(level <= 5) {
+        } else if (level <= 5) {
             Flag.css('left', '32px').css('top', '-11px');
-        } else if(level <= 8) {
+        } else if (level <= 8) {
             Flag.css('left', '27px').css('top', '7px');
-        } else if(level <= 12) {
+        } else if (level <= 12) {
             Flag.css('left', '42px').css('top', '-1px');
-        } else if(level <= 15) {
+        } else if (level <= 15) {
             Flag.css('left', '32px').css('top', '-5px');
-        } else if(level <= 17) {
+        } else if (level <= 17) {
             Flag.css('left', '32px').css('top', '0px');
-        } else if(level >= 18) {
+        } else if (level >= 18) {
             Flag.css('left', '32px').css('top', '-11px');
         }
     }
@@ -59,19 +59,26 @@
             // todo hardcoded ally ids
             if (cityData.hasOwnProperty('ownerAllyId')) {
                 // BND (pink)
-                if(["5"].includes(cityData.ownerAllyId)) {
+                if (["5"].includes(cityData.ownerAllyId)) {
                     $('#js_cityLocation' + id + 'Link').css('filter', 'hue-rotate(290deg)');
                     fixCityFlags(id, cityData.level);
                 }
 
                 // Enemy (brown)
-                if(["3"].includes(cityData.ownerAllyId)) {
+                if (["3"].includes(cityData.ownerAllyId)) {
                     $('#js_cityLocation' + id + 'Link').css('filter', 'hue-rotate(50deg)');
                     fixCityFlags(id, cityData.level);
                 }
             }
 
-            $('#js_cityLocation' + id + 'TitleText').text(cityData.name + ' (' + ally + cityData.ownerName + ')')
+            $('#js_cityLocation' + id + 'TitleText').text(cityData.name + ' (' + ally + cityData.ownerName + ')');
+
+            const Scroll = $('#cityLocation' + id + 'Scroll');
+            if (Scroll.hasClass('can_be_entered')) {
+                Scroll.click(function() {
+                    window.location = 'https://s303-en.ikariam.gameforge.com/?view=city&cityId=' + cityData.id
+                });
+            }
         }
     });
 })();
