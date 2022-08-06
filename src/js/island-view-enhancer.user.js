@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Ikariam Island View Enhancer
 // @namespace    http://tampermonkey.net/
-// @version      0.3
+// @version      0.4
 // @description  try to take over the world!
 // @author       Domi95
 // @match        https://*.ikariam.gameforge.com/?view=island*
@@ -44,6 +44,7 @@
         const cityWrapper = $(this);
         const id = cityWrapper.attr('id').replace('cityLocation', '');
         const cityData = window.ikariam.getScreen().data.cities[id];
+        const Scroll = $('#cityLocation' + id + 'Scroll');
 
         if (cityData === null || cityData === undefined) {
             console.log('no city data for id ' + id);
@@ -54,6 +55,11 @@
             let ally = '';
             if (cityData.hasOwnProperty('ownerAllyTag')) {
                 ally = cityData.ownerAllyTag + ' | ';
+            }
+
+            if (cityData.hasOwnProperty('state') && cityData.state === 'vacation') {
+                $('#cityLocation' + id).css('opacity', 0.5);
+                Scroll.css('opacity', 0.5);
             }
 
             // todo hardcoded ally ids
@@ -73,7 +79,6 @@
 
             $('#js_cityLocation' + id + 'TitleText').text(cityData.name + ' (' + ally + cityData.ownerName + ')');
 
-            const Scroll = $('#cityLocation' + id + 'Scroll');
             if (Scroll.hasClass('can_be_entered')) {
                 Scroll.click(function() {
                     window.location = 'https://s303-en.ikariam.gameforge.com/?view=city&cityId=' + cityData.id
